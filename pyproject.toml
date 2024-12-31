@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "Neural Network ML"
+description = "Mini projects using neural networks"
+version = "0.1.0"
+readme = "README.md"
+authors = ["josh-b-2000"]
+packages = [{ include = "neural_network_ml" }]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "~3.12"
+pydantic = "2.9.2"
+typer = "0.15.1"
+pygame = "2.6.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "1.13.0"
+ruff = "0.8.2"
+
+[tool.poetry.scripts]
+cli = "neural_network_ml.cli:main"
+
+[tool.mypy]
+disallow_untyped_defs = true
+disable_error_code = ["import-untyped"]
+plugins = "pydantic.mypy"
+
+[tool.ruff]
+output-format = "full"
+show-fixes = true
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "ERA",   # eradicate
+    "B",     # flake8-bugbear
+    "C4",    # flake8-comprehensions
+    "ISC",   # flake8-implicit-str-concat
+    "PIE",   # flake8-pie
+    "T20",   # flake8-print
+    "SIM",   # flake8-simplify
+    "I",     # isort
+    "PERF",  # perflint
+    "E",     # pycodestyle errors
+    "F",     # pyflakes
+    "PGH",   # pygrep-hooks
+    "UP",    # pyupgrade
+    "RUF",   # Ruff-specific rules
+]
+ignore = [
+    "E501",    # (line too long) handled by ruff formatter
+    "E712",    # (true-false comparison) pandas/numpy rely on == behaviour
+    "SIM114",  # (combine if branches) a lot of times it's more readable to separate logic
+    "ISC001",  # (implicit string concat) conflicts with ruff formatter
+]
