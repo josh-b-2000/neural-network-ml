@@ -1,10 +1,13 @@
 import pygame
 
+from neural_network_ml import FRAME_RATE, SCREEN_HEIGHT, SCREEN_WIDTH
+
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+clock = pygame.time.Clock()
+
 
 def basic_renderer() -> None:
-    pygame.init()
-    screen = pygame.display.set_mode((1280, 720))
-    clock = pygame.time.Clock()
     running = True
 
     while running:
@@ -16,6 +19,6 @@ def basic_renderer() -> None:
 
         pygame.display.flip()
 
-        clock.tick(60)
+        clock.tick(FRAME_RATE)
 
     pygame.quit()

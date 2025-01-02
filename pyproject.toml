@@ -15,6 +15,7 @@ python = "~3.12"
 pydantic = "2.9.2"
 typer = "0.15.1"
 pygame = "2.6.1"
+numpy = "^2.2.1"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.13.0"
